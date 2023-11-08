@@ -1,0 +1,62 @@
+.collapsible-control-wrapper {
+    display: inline-block;
+    border: 1px solid var(--collapsible-control-border-color);
+    margin-top: 10px;
+    margin-right: 16px;
+    vertical-align: top;
+    background-color: var(--collapsible-control-background-color);
+
+    & .collapsible-control-header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        font-size: var(--collapsible-control-header-font-size);
+        color: var(--collapsible-control-header-font-color);
+        padding: var(--collapsible-control-header-topbottom-padding) var(--collapsible-control-header-rightleft-padding);
+        padding-right: max(36px, var(--collapsible-control-header-rightleft-padding));
+        cursor: pointer;
+        min-height: var(--collapsible-control-header-collapse-image-size);
+        background-color: var(--collapsible-control-header-background-color);
+    }
+
+    & .collapsible-control-header:before {
+        content: "";
+        position: absolute;
+        width: var(--collapsible-control-header-collapse-image-size);
+        height: 100%;
+        top: 0;
+        right: var(--collapsible-control-header-rightleft-padding);
+        background-image: var(--collapsible-control-header-collapse-image);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: var(--collapsible-control-header-collapse-image-size);
+        transition: transform var(--collapsible-control-expansion-speed);
+        transform: rotate(180deg);
+    }
+
+    & .collapsible-control-inner {
+        display: grid;
+        grid-template-rows: 1fr;
+        transition: grid-template-rows var(--collapsible-control-expansion-speed), padding var(--collapsible-control-expansion-speed);
+        padding: 0 var(--collapsible-control-rightleft-padding);
+
+        &>.control-container {
+            overflow: hidden;
+            padding-right: 0;
+            margin-top: 0;
+        }
+
+        &>.control-container>*:first-child {
+            padding-top: 10px;
+        }
+    }
+
+}
+
+.control-collapsed .collapsible-control-inner {
+    grid-template-rows: 0fr;
+}
+
+.control-collapsed .collapsible-control-header:before {
+    transform: rotate(0deg);
+}
