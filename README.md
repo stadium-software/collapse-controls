@@ -1,7 +1,7 @@
 # Collapsible Controls
 A script to make any control collapsible
 
-//video
+https://github.com/stadium-software/collapse-controls/assets/2085324/96ed1b20-a77f-4cd1-bd2b-abd77eb6217d
 
 ## Sample Application
 This repo contains a sample application created in Stadium v 6.7
