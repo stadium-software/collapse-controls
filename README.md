@@ -5,7 +5,7 @@ https://github.com/stadium-software/collapse-controls/assets/2085324/96ed1b20-a7
 
 ## Sample Application
 This repo contains a sample application created in Stadium v 6.7
-[*CollapseControls.sapz*](Stadium6/CollapseControls.sapz)
+[CollapseControls.sapz](Stadium6/CollapseControls.sapz?raw=true)
 
 ## Version
 1.0
@@ -15,7 +15,7 @@ This repo contains a sample application created in Stadium v 6.7
 
 ## Global Script Setup
 1. Create a Global Script called "CollapseControl"
-2. Add four input parameters to the Global Script
+2. Add the input parameters below to the Global Script
    1. ControlClassName
    2. HeaderTitle
    3. StartCollapsed
@@ -55,12 +55,12 @@ for (let i = 0; i < collapsibleControls.length; i++) {
 1. Drag a control to a page
 2. Assign a classname to the control (e.g. collapse-control)
 
-## Pane.Load Setup
+## Page.Load Setup
 1. Drag the "CollapseControl" script into the Page.Load event handler (or another event handler that should cause the control to become collapsible)
 2. Complete the input parameters
    1. ControlClassName: The classname you assigned to the control  (e.g. collapse-control)
-   2. HeaderTitle: A title that will be shown above the collapsible control
-   3. StartCollapsed: A boolean (true / false) indicating whether the control should initially be shown as collapsed (by default it will not be collapsed)
+   2. HeaderTitle: A title that will be shown above the collapsible control (optional)
+   3. StartCollapsed: A boolean (true / false) indicating whether the control should initially be shown as collapsed (by default it will be expanded)
 
 # Styling
 Various elements in this module can be styled using the two CSS files in this repo
