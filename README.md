@@ -3,6 +3,10 @@ A script to make any control collapsible
 
 //video
 
+## Sample Application
+This repo contains a sample application created in Stadium v 6.7
+[*CollapseControls.sapz*](Stadium6/CollapseControls.sapz)
+
 ## Version
 1.0
 
@@ -65,11 +69,11 @@ Various elements in this module can be styled using the two CSS files in this re
 
 **Stadium 6.6 or higher**
 1. Create a folder called "CSS" inside of your Embedded Files in your application
-2. Drag the two CSS files from this repo [*collabse-control-edit-variables.css*](collabse-control-edit-variables.css) and [*collabse-control-edit.css*](collabse-control-edit.css) into that folder
+2. Drag the two CSS files from this repo [*collapsible-control-variables.css*](collapsible-control-variables.css) and [*collapsible-control.css*](collapsible-control.css) into that folder
 3. Paste the link tags below into the *head* property of your application
 ```html
-<link rel="stylesheet" href="{EmbeddedFiles}/CSS/collabse-control-edit.css">
-<link rel="stylesheet" href="{EmbeddedFiles}/CSS/collabse-control-edit-variables.css">
+<link rel="stylesheet" href="{EmbeddedFiles}/CSS/collapsible-control.css">
+<link rel="stylesheet" href="{EmbeddedFiles}/CSS/collapsible-control-variables.css">
 ``` 
 
 ![](images/ApplicationHeadProp.png)
@@ -78,7 +82,7 @@ Various elements in this module can be styled using the two CSS files in this re
 1. Copy the CSS from the two css files into the Stylesheet in your application
 
 ## Customising CSS
-1. Open the CSS file called [*collabse-control-edit-variables.css*](collabse-control-edit-variables.css) from this repo
+1. Open the CSS file called [*collapsible-control-variables.css*](collapsible-control-variables.css) from this repo
 2. Adjust the variables in the *:root* element as you see fit
 3. Overwrite the file in the CSS folder of your application with the customised file
 
