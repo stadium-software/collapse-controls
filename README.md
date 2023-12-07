@@ -53,7 +53,7 @@ for (let i = 0; i < collapsibleControls.length; i++) {
 ```
 
 ## Page Setup
-1. Drag a control to a page
+1. Drag any control to a page
 2. Assign a classname to the control (e.g. collapse-control)
 
 ## Page.Load Setup
