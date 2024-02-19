@@ -22,7 +22,7 @@ This repo contains a sample application created in Stadium v 6.7
 3. Drag a *JavaScript* action into the script
 4. Add the Javascript below into the JavaScript code property
 ```javascript
-/*Stadium Script Version 1.0*/
+/* Stadium Script Version 1.0 https://github.com/stadium-software/collapse-controls */
 let controlClass = ~.Parameters.Input.ControlClassName;
 let controlTitle = ~.Parameters.Input.HeaderTitle;
 let startCollpsed = ~.Parameters.Input.StartCollapsed;
