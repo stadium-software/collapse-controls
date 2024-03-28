@@ -63,10 +63,8 @@ for (let i = 0; i < collapsibleControls.length; i++) {
    2. HeaderTitle: A title that will be shown above the collapsible control (optional)
    3. StartCollapsed: A boolean (true / false) indicating whether the control should initially be shown as collapsed (by default it will be expanded)
 
-# Styling
-Various elements in this module can be styled using the two CSS files in this repo
-
 ## Applying the CSS
+The CSS below is required for the correct functioning of the module. Some elements can be [customised](#customising-css) using a variables CSS file. 
 
 **Stadium 6.6 or higher**
 1. Create a folder called "CSS" inside of your Embedded Files in your application
