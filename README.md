@@ -3,12 +3,8 @@ A script to make any control collapsible
 
 https://github.com/stadium-software/collapse-controls/assets/2085324/96ed1b20-a77f-4cd1-bd2b-abd77eb6217d
 
-## Sample Application
-This repo contains a sample application created in Stadium v 6.7
-[CollapseControls.sapz](Stadium6/CollapseControls.sapz?raw=true)
-
 ## Version
-1.0
+1.1 - fixed "layout control did not collapse" CSS bug (copy collapsible-control.css file into the appliation to fix)
 
 ## Application Setup
 1. Check the *Enable Style Sheet* checkbox in the application properties
@@ -22,7 +18,7 @@ This repo contains a sample application created in Stadium v 6.7
 3. Drag a *JavaScript* action into the script
 4. Add the Javascript below into the JavaScript code property
 ```javascript
-/* Stadium Script Version 1.0 https://github.com/stadium-software/collapse-controls */
+/* Stadium Script Version 1.1 https://github.com/stadium-software/collapse-controls */
 let controlClass = ~.Parameters.Input.ControlClassName;
 let controlTitle = ~.Parameters.Input.HeaderTitle;
 let startCollpsed = ~.Parameters.Input.StartCollapsed;
