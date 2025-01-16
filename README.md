@@ -6,6 +6,8 @@ https://github.com/stadium-software/collapse-controls/assets/2085324/96ed1b20-a7
 ## Version
 1.1 - fixed "layout control did not collapse" CSS bug (copy collapsible-control.css file into the appliation to fix)
 
+1.2 Added 'CollapseOnClickAway' parameter
+
 ## Application Setup
 1. Check the *Enable Style Sheet* checkbox in the application properties
 
@@ -15,13 +17,15 @@ https://github.com/stadium-software/collapse-controls/assets/2085324/96ed1b20-a7
    1. ControlClassName
    2. HeaderTitle
    3. StartCollapsed
+   4. CollapseOnClickAway
 3. Drag a *JavaScript* action into the script
-4. Add the Javascript below into the JavaScript code property
+4. Add the Javascript below unchanged into the JavaScript code property
 ```javascript
-/* Stadium Script Version 1.1 https://github.com/stadium-software/collapse-controls */
+/* Script Version 1.2 https: //github.com/stadium-software/collapse-controls */
 let controlClass = ~.Parameters.Input.ControlClassName;
 let controlTitle = ~.Parameters.Input.HeaderTitle;
-let startCollpsed = ~.Parameters.Input.StartCollapsed;
+let startCollapsed = ~.Parameters.Input.StartCollapsed;
+let collapseOnClickAway = ~.Parameters.Input.CollapseOnClickAway;
 
 let collapsibleControls = document.querySelectorAll("." + controlClass);
 for (let i = 0; i < collapsibleControls.length; i++) {
@@ -31,7 +35,7 @@ for (let i = 0; i < collapsibleControls.length; i++) {
 
     innerContainer.classList.add("collapsible-control-inner");
     wrapper.classList.add("collapsible-control-wrapper");
-    if (startCollpsed) {
+    if (startCollapsed) {
         wrapper.classList.add("control-collapsed");
     }
     headerContainer.classList.add("collapsible-control-header");
@@ -46,6 +50,11 @@ for (let i = 0; i < collapsibleControls.length; i++) {
     collapsibleControls[i].before(wrapper);
     innerContainer.appendChild(collapsibleControls[i]);
 }
+if (collapseOnClickAway) {
+    document.body.addEventListener("click", function (e) {
+        if (!e.target.closest(".collapsible-control-wrapper:has(." + controlClass + ")")) document.querySelector(".collapsible-control-wrapper:has(." + controlClass + ")").classList.add("control-collapsed");
+    });
+}
 ```
 
 ## Page Setup
@@ -57,7 +66,8 @@ for (let i = 0; i < collapsibleControls.length; i++) {
 2. Complete the input parameters
    1. ControlClassName: The classname you assigned to the control  (e.g. collapse-control)
    2. HeaderTitle: A title that will be shown above the collapsible control (optional)
-   3. StartCollapsed: A boolean (true / false) indicating whether the control should initially be shown as collapsed (by default it will be expanded)
+   3. StartCollapsed: A boolean (true / false) indicating whether the control should initially be shown as collapsed. The default is 'false'
+   4. CollapseOnClickAway: A boolean (true / false) indicating whether the control should collapse when user click outside of it. The default is 'false'
 
 ## Applying the CSS
 The CSS below is required for the correct functioning of the module. Some elements can be [customised](#customising-css) using a variables CSS file. 
@@ -80,6 +90,7 @@ The CSS below is required for the correct functioning of the module. Some elemen
 1. Open the CSS file called [*collapsible-control-variables.css*](collapsible-control-variables.css) from this repo
 2. Adjust the variables in the *:root* element as you see fit
 3. Overwrite the file in the CSS folder of your application with the customised file
+4. Do not change any CSS other than the variables provided in the *-variables.css file
 
 ## CSS Upgrading
 To upgrade the CSS in this module, follow the [steps outlined in this repo](https://github.com/stadium-software/samples-upgrading)
