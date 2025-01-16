@@ -53,7 +53,7 @@ for (let i = 0; i < collapsibleControls.length; i++) {
 if (collapseOnClickAway) {
     document.body.addEventListener("click", function (e) {
         let el = document.querySelector(".collapsible-control-wrapper:has(." + controlClass + ")");
-        if (!e.target.closest(".collapsible-control-wrapper:has(." + controlClass + ")") && el) document.querySelector(".collapsible-control-wrapper:has(." + controlClass + ")").classList.add("control-collapsed");
+        if (!e.target.closest(".collapsible-control-wrapper:has(." + controlClass + ")") && el) el.classList.add("control-collapsed");
     });
 }
 ```
