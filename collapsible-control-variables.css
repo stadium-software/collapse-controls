@@ -2,14 +2,14 @@
 :root {
     --collapsible-control-border-color: #ccc;
     --collapsible-control-background-color: #f5f5f5;
-    --collapsible-control-topbottom-padding: 12px;
-    --collapsible-control-rightleft-padding: 12px;
+    --collapsible-control-topbottom-padding: 1.2rem;
+    --collapsible-control-rightleft-padding: 1.2rem;
     --collapsible-control-header-background-color: #f9f9f9;
-    --collapsible-control-header-font-size: 18px;
+    --collapsible-control-header-font-size: 1.8rem;
     --collapsible-control-header-font-color: #333;
-    --collapsible-control-header-topbottom-padding: 6px;
-    --collapsible-control-header-rightleft-padding: 12px;
+    --collapsible-control-header-topbottom-padding: 0.6rem;
+    --collapsible-control-header-rightleft-padding: 1.2rem;
     --collapsible-control-header-collapse-image: url('data: image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHBhdGggZmlsbD0iIzg4ODg4OCIgZD0ibTY0IDE0NGwxOTIgMjI0bDE5Mi0yMjRINjR6Ii8+PC9zdmc+');
-    --collapsible-control-header-collapse-image-size: 20px;
+    --collapsible-control-header-collapse-image-size: 2rem;
     --collapsible-control-expansion-speed: 500ms;
 }
