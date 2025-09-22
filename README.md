@@ -60,7 +60,7 @@ if (collapseOnClickAway) {
     });
 }
 function loadCSS() {
-    let moduleID = "stadium-module";
+    let moduleID = "stadium-collapsible-control";
     if (!document.getElementById(moduleID)) {
         let cssMain = document.createElement("style");
         cssMain.id = moduleID;
