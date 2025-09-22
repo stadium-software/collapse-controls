@@ -4,7 +4,7 @@ A script to make any control collapsible
 https://github.com/stadium-software/collapse-controls/assets/2085324/96ed1b20-a77f-4cd1-bd2b-abd77eb6217d
 
 ## Version
-1.1 - fixed "layout control did not collapse" CSS bug (copy collapsible-control.css file into the appliation to fix)
+1.1 - fixed "layout control did not collapse" CSS bug (copy collapsible-control.css file into the application to fix)
 
 1.2 Added 'CollapseOnClickAway' parameter
 
