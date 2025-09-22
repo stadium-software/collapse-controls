@@ -8,6 +8,8 @@ https://github.com/stadium-software/collapse-controls/assets/2085324/96ed1b20-a7
 
 1.2 Added 'CollapseOnClickAway' parameter
 
+1.3 Integrated CSS into script
+
 ## Application Setup
 1. Check the *Enable Style Sheet* checkbox in the application properties
 
@@ -21,12 +23,13 @@ https://github.com/stadium-software/collapse-controls/assets/2085324/96ed1b20-a7
 3. Drag a *JavaScript* action into the script
 4. Add the Javascript below unchanged into the JavaScript code property
 ```javascript
-/* Script Version 1.2 https: //github.com/stadium-software/collapse-controls */
+/* Script Version 1.3 https: //github.com/stadium-software/collapse-controls */
 let controlClass = ~.Parameters.Input.ControlClassName;
 let controlTitle = ~.Parameters.Input.HeaderTitle;
 let startCollapsed = ~.Parameters.Input.StartCollapsed;
 let collapseOnClickAway = ~.Parameters.Input.CollapseOnClickAway;
 
+loadCSS();
 let collapsibleControls = document.querySelectorAll("." + controlClass);
 for (let i = 0; i < collapsibleControls.length; i++) {
     let wrapper = document.createElement("div");
@@ -56,6 +59,83 @@ if (collapseOnClickAway) {
         if (!e.target.closest(".collapsible-control-wrapper:has(." + controlClass + ")") && el) el.classList.add("control-collapsed");
     });
 }
+function loadCSS() {
+    let moduleID = "stadium-module";
+    if (!document.getElementById(moduleID)) {
+        let cssMain = document.createElement("style");
+        cssMain.id = moduleID;
+        cssMain.type = "text/css";
+        cssMain.textContent = `
+/* CSS Version 1.1 https: //github.com/stadium-software/collapse-controls */
+.collapsible-control-wrapper {
+    display: inline-block;
+    border: 0.1rem solid var(--collapsible-control-border-color, var(--GENERAL-BORDER-COLOR));
+    margin-top: 1rem;
+    margin-right: 1.6rem;
+    vertical-align: top;
+    background-color: var(--collapsible-control-background-color, var(--BODY-BACKGROUND-COLOR));
+
+    .collapsible-control-header {
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        display: flex;
+        align-items: center;
+        font-size: var(--collapsible-control-header-font-size, var(--FONT-SIZE-LARGE));
+        color: var(--collapsible-control-header-font-color, var(--BODY-FONT-COLOR));
+        padding: var(--collapsible-control-header-topbottom-padding, 0.6rem) var(--collapsible-control-header-rightleft-padding, 1.2rem);
+        padding-right: max(3.6rem, var(--collapsible-control-header-rightleft-padding, 1.2rem));
+        min-height: var(--collapsible-control-header-collapse-image-size, 2rem);
+        background-color: var(--collapsible-control-header-background-color, var(--DARKER-GREY));
+    }
+
+    .collapsible-control-header:before {
+        content: "";
+        position: absolute;
+        width: var(--collapsible-control-header-collapse-image-size, 2rem);
+        height: 100%;
+        top: 0;
+        right: var(--collapsible-control-header-rightleft-padding, 1.2rem);
+        background-image: var(--collapsible-control-header-collapse-image, url('data: image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHBhdGggZmlsbD0iIzg4ODg4OCIgZD0ibTY0IDE0NGwxOTIgMjI0bDE5Mi0yMjRINjR6Ii8+PC9zdmc+'));
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: var(--collapsible-control-header-collapse-image-size, 2rem);
+        transition: transform var(--collapsible-control-expansion-speed, 500ms);
+        transform: rotate(180deg);
+    }
+
+    .collapsible-control-inner {
+        display: grid;
+        grid-template-rows: 1fr;
+        transition: grid-template-rows var(--collapsible-control-expansion-speed, 500ms), padding var(--collapsible-control-expansion-speed, 500ms);
+        padding: 0 var(--collapsible-control-rightleft-padding, 1.2rem);
+
+        > div {
+            overflow: hidden;
+            padding-right: 0;
+            margin-top: 0;
+        }
+
+        > .control-container > *:first-child {
+            padding-top: 1rem;
+        }
+    }
+
+}
+.control-collapsed .collapsible-control-inner {
+    grid-template-rows: 0fr;
+}
+.control-collapsed .collapsible-control-header:before {
+    transform: rotate(0deg);
+}
+html {
+    min-height: 100%;
+    font-size: 62.5%;
+}        
+        `;
+        document.head.appendChild(cssMain);
+    }
+}
 ```
 
 ## Page Setup
@@ -71,24 +151,7 @@ if (collapseOnClickAway) {
    4. CollapseOnClickAway: A boolean (true / false) indicating whether the control should collapse when user click outside of it. The default is 'false'
 
 ## CSS
-The CSS below is required for the correct functioning of the module. Variables exposed in the [*collapsible-control-variables.css*](collapsible-control-variables.css) file can be [customised](#customising-css).
-
-### Before v6.12
-1. Create a folder called "CSS" inside of your Embedded Files in your application
-2. Drag the two CSS files from this repo [*collapsible-control-variables.css*](collapsible-control-variables.css) and [*collapsible-control.css*](collapsible-control.css) into that folder
-3. Paste the link tags below into the *head* property of your application
-```html
-<link rel="stylesheet" href="{EmbeddedFiles}/CSS/collapsible-control.css">
-<link rel="stylesheet" href="{EmbeddedFiles}/CSS/collapsible-control-variables.css">
-``` 
-
-### v6.12+
-1. Create a folder called "CSS" inside of your Embedded Files in your application
-2. Drag the CSS files from this repo [*collapsible-control.css*](collapsible-control.css) into that folder
-3. Paste the link tag below into the *head* property of your application
-```html
-<link rel="stylesheet" href="{EmbeddedFiles}/CSS/collapsible-control.css">
-``` 
+Variables exposed in the [*collapsible-control-variables.css*](collapsible-control-variables.css) file can be [customised](#customising-css).
 
 ### Customising CSS
 1. Open the CSS file called [*collapsible-control-variables.css*](collapsible-control-variables.css) from this repo
@@ -100,8 +163,6 @@ The CSS below is required for the correct functioning of the module. Variables e
 <link rel="stylesheet" href="{EmbeddedFiles}/CSS/collapsible-control-variables.css">
 ``` 
 6. Add the file to the "CSS" inside of your Embedded Files in your application
-
-**NOTE: Do not change any of the CSS in the 'collapsible-control.css' file**
 
 ## Upgrading Stadium Repos
 Stadium Repos are not static. They change as additional features are added and bugs are fixed. Using the right method to work with Stadium Repos allows for upgrading them in a controlled manner. 
